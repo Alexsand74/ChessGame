@@ -104,6 +104,13 @@ public class Player {
 //        Player player = (Player) o;
 //        return isWhite() == player.isWhite() && getRank() == player.getRank() && getAge() == player.getAge() && getName().equals(player.getName()) && getEmail().equals(player.getEmail());
 //    }
+    public void movePiece(Piece piece, Spot spot){
+        if(isWhite() != piece.isWhite()){
+            throw new IllegalArgumentException( "Incorrect color of the figure. Try again !");
+        }
+        piece.setSpot(spot);
+        System.out.println("Piece "+ piece.getId() + " is moved to: " + spot);
+    }
 
     @Override
     public int hashCode() {
@@ -113,11 +120,11 @@ public class Player {
     @Override
     public String toString() {
         return "Player{" +
-                "\n name='" + name + '\'' +
-                ",\n email='" + email + '\'' +
-                ",\n white=" + white +
-                ",\n rank=" + rank +
-                ",\n age=" + age +
+                " name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", white=" + white +
+                ", rank=" + rank +
+                ", age=" + age +
                 '}';
     }
 }
